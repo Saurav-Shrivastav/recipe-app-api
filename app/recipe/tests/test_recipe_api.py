@@ -21,7 +21,7 @@ def sample_recipe(user, **params):
         'price': 5.00
     }
     defaults.update(params)
-    
+
     return Recipe.objects.create(
         user=user,
         **defaults
@@ -67,7 +67,7 @@ class PrivateRecipeAPITests(TestCase):
 
     def test_recipes_limited_to_user(self):
         '''Test retrieving recipes for user'''
-        user2 = get_user_model.objects.create_user(
+        user2 = get_user_model().objects.create_user(
             'other@gmail.com',
             'password'
         )
